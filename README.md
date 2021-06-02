@@ -4,7 +4,7 @@
 * [Javaweb-2](./docs/a-2javaweb-2.md)
 * [Mybatis](./docs/b-1MyBatis.md)
 * [MySQL](./docs/c-1mysql.md)
-* [Redis](./docs/b-1Redis.md)
+* [Redis](./docs/c-3Redis.md)
 * [Spring5-1](./docs/d-1Spring5.md)
 * [Spring5-2](./docs/d-2Spring5-2.md)
 * [SpringMVC](./docs/f-1SpringMVC.md)
