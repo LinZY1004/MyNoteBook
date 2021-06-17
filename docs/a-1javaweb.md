@@ -1,8 +1,3 @@
-> 本文根据b站【狂神说java】——JavaWeb相关视频整理，  
-> 视频链接：[添加链接描述](https://www.bilibili.com/video/BV12J411M7Sj?from=search&seid=17919792675206800685)
-
-## Java Web
-
 1、基本概念
 ------
 
@@ -42,7 +37,7 @@ web应用程序编写完毕后，若想提供给外界访问：需要一个服�
 
 *   \*.htm, \*.html,这些都是网页的后缀，如果服务器上一直存在这些东西，我们就可以直接进行读取。通络；
 
-![](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/20200515105012978.png)
+![](https://img-blog.csdnimg.cn/20200515105012978.png)
 
 *   静态web存在的缺点
     *   Web页面无法动态更新，所有用户看到都是同一个页面
@@ -55,7 +50,7 @@ web应用程序编写完毕后，若想提供给外界访问：需要一个服�
 
 页面会动态展示： “Web的页面展示的效果因人而异”；
 
-![](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/20210428152324.png)
+![](https://img-blog.csdnimg.cn/20200515105039352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
 缺点：
 
@@ -497,17 +492,17 @@ Maven会规定好你该如何去编写我们的Java代码，必须要按照这�
 
 ### 5.7、创建一个普通的Maven项目
 
-![](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/20200517144909430.png)
+![](https://img-blog.csdnimg.cn/20200517144909430.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
-![](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/20200517144909430.png)
+![](https://img-blog.csdnimg.cn/20200517144930509.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
 这个只有在Web应用下才会有！
 
-![](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/20200517144949344.png)
+![](https://img-blog.csdnimg.cn/20200517144949344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
 ### 5.8 标记文件夹功能
 
-![](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/20200517145032500.png)
+![](https://img-blog.csdnimg.cn/20200517145032500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
 ![](https://img-blog.csdnimg.cn/20200517145054337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
@@ -519,11 +514,11 @@ Maven会规定好你该如何去编写我们的Java代码，必须要按照这�
 
 ![](https://img-blog.csdnimg.cn/20200517145233141.png)
 
-![](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/20200517145248549.png)
+![](https://img-blog.csdnimg.cn/20200517145248549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
-![](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/20200517145314844.png)
+![](https://img-blog.csdnimg.cn/20200517145314844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
-![](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/20200517145330215.png)
+![](https://img-blog.csdnimg.cn/20200517145330215.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
 解决警告问题
 
@@ -546,31 +541,34 @@ pom.xml 是Maven的核心配置文件
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<!--Maven版本和头文件-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  
+  <!--这里就是我们刚才配置的GAV-->
   <groupId>com.kuang</groupId>
   <artifactId>javaweb-01-maven</artifactId>
   <version>1.0-SNAPSHOT</version>
-  
+  <!--Package：项目的打包方式
+  jar：java应用
+  war：JavaWeb应用
+  -->
   <packaging>war</packaging>
 
 
-  
+  <!--配置-->
   <properties>
-    
+    <!--项目的默认构建编码-->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    
+    <!--编码版本-->
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
-  
+  <!--项目依赖-->
   <dependencies>
-    
+    <!--具体依赖的jar包配置文件-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -578,16 +576,16 @@ pom.xml 是Maven的核心配置文件
     </dependency>
   </dependencies>
 
-  
+  <!--项目构建用的东西-->
   <build>
     <finalName>javaweb-01-maven</finalName>
-    <pluginManagement>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
-        
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
@@ -625,7 +623,7 @@ pom.xml 是Maven的核心配置文件
 maven由于他的约定大于配置，我们之后可以能遇到我们写的配置文件，无法被导出或者生效的问题，解决方案：
 
 ```xml
-
+<!--在build中配置resources，来防止我们资源导出失败的问题-->
 <build>
     <resources>
         <resource>
@@ -707,10 +705,6 @@ maven由于他的约定大于配置，我们之后可以能遇到我们写的配
     
     ![](https://img-blog.csdnimg.cn/20200517145959955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
-8.修改配置文件后，需要刷新maven资源库
-
-![image-20210421171356794](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/image-20210421171356794.png)
-
 6、Servlet
 ---------
 
@@ -773,11 +767,11 @@ Serlvet接口Sun公司有两个默认的实现类：HttpServlet，GenericServlet
     ```java
     public class HelloServlet extends HttpServlet {
         
-        
+        //由于get或者post只是请求实现的不同的方式，可以相互调用，业务逻辑都一样；
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            
-            PrintWriter writer = resp.getWriter(); 
+            //ServletOutputStream outputStream = resp.getOutputStream();
+            PrintWriter writer = resp.getWriter(); //响应流
             writer.print("Hello,Serlvet");
         }
     
@@ -796,12 +790,12 @@ Serlvet接口Sun公司有两个默认的实现类：HttpServlet，GenericServlet
     
     ```xml
     
-        
+        <!--注册Servlet-->
         <servlet>
             <servlet-name>hello</servlet-name>
             <servlet-class>com.kuang.servlet.HelloServlet</servlet-class>
         </servlet>
-        
+        <!--Servlet的请求路径-->
         <servlet-mapping>
             <servlet-name>hello</servlet-name>
             <url-pattern>/hello</url-pattern>
@@ -874,7 +868,7 @@ Servlet是由Web服务器调用，web服务器在收到浏览器请求之后，�
 4.  默认请求路径
   
     ```xml
-        
+        <!--默认请求路径-->
         <servlet-mapping>
             <servlet-name>hello</servlet-name>
             <url-pattern>/*</url-pattern>
@@ -886,7 +880,10 @@ Servlet是由Web服务器调用，web服务器在收到浏览器请求之后，�
   
     ```xml
     
-    
+    <!--可以自定义后缀实现请求映射
+        注意点，*前面不能加项目映射的路径
+        hello/sajdlkajda.qinjiang
+        -->
     <servlet-mapping>
         <servlet-name>hello</servlet-name>
         <url-pattern>*.qinjiang</url-pattern>
@@ -898,7 +895,7 @@ Servlet是由Web服务器调用，web服务器在收到浏览器请求之后，�
     指定了固有的映射路径优先级最高，如果找不到就会走默认的处理请求；
     
     ```xml
-    
+    <!--404-->
     <servlet>
         <servlet-name>error</servlet-name>
         <servlet-class>com.kuang.servlet.ErrorServlet</servlet-class>
@@ -924,13 +921,13 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        
-        
-        
+        //this.getInitParameter()   初始化参数
+        //this.getServletConfig()   Servlet配置
+        //this.getServletContext()  Servlet上下文
         ServletContext context = this.getServletContext();
 
-        String username = "秦疆"; 
-        context.setAttribute("username",username); 
+        String username = "秦疆"; //数据
+        context.setAttribute("username",username); //将一个数据保存在了ServletContext中，名字为：username 。值 username
 
     }
 
@@ -988,7 +985,7 @@ public class GetServlet extends HttpServlet {
 #### 2、获取初始化参数
 
 ```xml
-    
+    <!--配置一些web应用初始化参数-->
     <context-param>
         <param-name>url</param-name>
         <param-value>jdbc:mysql://localhost:3306/mybatis</param-value>
@@ -1012,8 +1009,8 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     ServletContext context = this.getServletContext();
     System.out.println("进入了ServletDemo04");
-    
-    
+    //RequestDispatcher requestDispatcher = context.getRequestDispatcher("/gp"); //转发的请求路径
+    //requestDispatcher.forward(req,resp); //调用forward实现请求转发；
     context.getRequestDispatcher("/gp").forward(req,resp);
 }
 
@@ -1170,21 +1167,21 @@ PrintWriter getWriter() throws IOException;
 ```java
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    
+    // 1. 要获取下载文件的路径
     String realPath = "F:\\班级管理\\西开【19525】\\2、代码\\JavaWeb\\javaweb-02-servlet\\response\\target\\classes\\秦疆.png";
     System.out.println("下载文件的路径："+realPath);
-    
+    // 2. 下载的文件名是啥？
     String fileName = realPath.substring(realPath.lastIndexOf("\\") + 1);
-    
+    // 3. 设置想办法让浏览器能够支持(Content-Disposition)下载我们需要的东西,中文文件名URLEncoder.encode编码，否则有可能乱码
     resp.setHeader("Content-Disposition","attachment;filename="+URLEncoder.encode(fileName,"UTF-8"));
-    
+    // 4. 获取下载文件的输入流
     FileInputStream in = new FileInputStream(realPath);
-    
+    // 5. 创建缓冲区
     int len = 0;
     byte[] buffer = new byte[1024];
-    
+    // 6. 获取OutputStream对象
     ServletOutputStream out = resp.getOutputStream();
-    
+    // 7. 将FileOutputStream流写入到buffer缓冲区,使用OutputStream将缓冲区中的数据输出到客户端！
     while ((len=in.read(buffer))>0){
         out.write(buffer,0,len);
     }
@@ -1220,34 +1217,34 @@ public class ImageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        
+        //如何让浏览器3秒自动刷新一次;
         resp.setHeader("refresh","3");
         
-        
+        //在内存中创建一个图片
         BufferedImage image = new BufferedImage(80,20,BufferedImage.TYPE_INT_RGB);
-        
-        Graphics2D g = (Graphics2D) image.getGraphics(); 
-        
+        //得到图片
+        Graphics2D g = (Graphics2D) image.getGraphics(); //笔
+        //设置图片的背景颜色
         g.setColor(Color.white);
         g.fillRect(0,0,80,20);
-        
+        //给图片写数据
         g.setColor(Color.BLUE);
         g.setFont(new Font(null,Font.BOLD,20));
         g.drawString(makeNum(),0,20);
 
-        
+        //告诉浏览器，这个请求用图片的方式打开
         resp.setContentType("image/jpeg");
-        
+        //网站存在缓存，不让浏览器缓存
         resp.setDateHeader("expires",-1);
         resp.setHeader("Cache-Control","no-cache");
         resp.setHeader("Pragma","no-cache");
 
-        
+        //把图片写给浏览器
         ImageIO.write(image,"jpg", resp.getOutputStream());
 
     }
 
-    
+    //生成随机数
     private String makeNum(){
         Random random = new Random();
         String num = random.nextInt(9999999) + "";
@@ -1271,7 +1268,7 @@ public class ImageServlet extends HttpServlet {
 
 #### 4、实现重定向
 
-![](https://gitee.com/xiaoyuan_students_oo/Typora-picture1/raw/master/2021/2020051715021341.png)
+![](https://img-blog.csdnimg.cn/2020051715021341.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Bhbl9oMTk5NQ==,size_16,color_FFFFFF,t_70)
 
 B一个web资源收到客户端A请求后，B他会通知A客户端去访问另外一个web资源C，这个过程叫重定向
 
@@ -1290,8 +1287,11 @@ void sendRedirect(String var1) throws IOException;
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-    
-    resp.sendRedirect("/r/img");
+    /*
+        resp.setHeader("Location","/r/img");
+        resp.setStatus(302);
+         */
+    resp.sendRedirect("/r/img");//重定向
 }
 
 ```
@@ -1392,7 +1392,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
     String password = req.getParameter("password");
     String[] hobbys = req.getParameterValues("hobbys");
     System.out.println("=============================");
-    
+    //后台接收中文乱码问题
     System.out.println(username);
     System.out.println(password);
     System.out.println(Arrays.toString(hobbys));
@@ -1400,8 +1400,8 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 
 
     System.out.println(req.getContextPath());
-    
-    
+    //通过请求转发
+    //这里的 / 代表当前的web应用
     req.getRequestDispatcher("/success.jsp").forward(req,resp);
 
 }
@@ -1462,12 +1462,12 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 2.  服务器响应给客户端cookie
 
 ```java
-Cookie[] cookies = req.getCookies(); 
-cookie.getName(); 
-cookie.getValue(); 
-new Cookie("lastLoginTime", System.currentTimeMillis()+""); 
-cookie.setMaxAge(24*60*60); 
-resp.addCookie(cookie); 
+Cookie[] cookies = req.getCookies(); //获得Cookie
+cookie.getName(); //获得cookie中的key
+cookie.getValue(); //获得cookie中的vlaue
+new Cookie("lastLoginTime", System.currentTimeMillis()+""); //新建一个cookie
+cookie.setMaxAge(24*60*60); //设置cookie的有效期
+resp.addCookie(cookie); //响应给客户端一个cookie
 
 ```
 
@@ -1532,28 +1532,28 @@ public class SessionDemo01 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        
+        //解决乱码问题
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
         
-        
+        //得到Session
         HttpSession session = req.getSession();
-        
+        //给Session中存东西
         session.setAttribute("name",new Person("秦疆",1));
-        
+        //获取Session的ID
         String sessionId = session.getId();
 
-        
+        //判断Session是不是新创建
         if (session.isNew()){
             resp.getWriter().write("session创建成功,ID:"+sessionId);
         }else {
             resp.getWriter().write("session以及在服务器中存在了,ID:"+sessionId);
         }
 
-        
-
-
+        //Session创建的时候做了什么事情；
+//        Cookie cookie = new Cookie("JSESSIONID",sessionId);
+//        resp.addCookie(cookie);
 
     }
 
@@ -1563,7 +1563,7 @@ public class SessionDemo01 extends HttpServlet {
     }
 }
 
-
+//得到Session
 HttpSession session = req.getSession();
 
 Person person = (Person) session.getAttribute("name");
@@ -1572,7 +1572,7 @@ System.out.println(person.toString());
 
 HttpSession session = req.getSession();
 session.removeAttribute("name");
-
+//手动注销Session
 session.invalidate();
 
 ```
@@ -1580,9 +1580,9 @@ session.invalidate();
 **会话自动过期：web.xml配置**
 
 ```xml
-
+<!--设置Session默认的失效时间-->
 <session-config>
-    
+    <!--15分钟后Session自动失效，以分钟为单位-->
     <session-timeout>15</session-timeout>
 </session-config>
 
@@ -1636,14 +1636,14 @@ JSP最终也会被转换成为一个Java类！
 **JSP 本质上就是一个Servlet**
 
 ```java
-
+//初始化
   public void _jspInit() {
       
   }
-
+//销毁
   public void _jspDestroy() {
   }
-
+//JSPService
   public void _jspService(.HttpServletRequest request,HttpServletResponse response)
       
 
@@ -1654,21 +1654,21 @@ JSP最终也会被转换成为一个Java类！
 2.  内置一些对象
   
     ```java
-    final javax.servlet.jsp.PageContext pageContext;  
-    javax.servlet.http.HttpSession session = null;    
-    final javax.servlet.ServletContext application;   
-    final javax.servlet.ServletConfig config;         
-    javax.servlet.jsp.JspWriter out = null;           
-    final java.lang.Object page = this;               
-    HttpServletRequest request                        
-    HttpServletResponse response                      
+    final javax.servlet.jsp.PageContext pageContext;  //页面上下文
+    javax.servlet.http.HttpSession session = null;    //session
+    final javax.servlet.ServletContext application;   //applicationContext
+    final javax.servlet.ServletConfig config;         //config
+    javax.servlet.jsp.JspWriter out = null;           //out
+    final java.lang.Object page = this;               //page：当前
+    HttpServletRequest request                        //请求
+    HttpServletResponse response                      //响应
     
     ```
     
 3.  输出页面前增加的代码
   
     ```java
-    response.setContentType("text/html");       
+    response.setContentType("text/html");       //设置响应的页面类型
     pageContext = _jspxFactory.getPageContext(this, request, response,
                                               null, true, 8192, true);
     _jspx_page_context = pageContext;
@@ -1827,10 +1827,10 @@ JSP的注释，不会在客户端显示，HTML就会！
 *   exception
 
 ```java
-pageContext.setAttribute("name1","秦疆1号"); 
-request.setAttribute("name2","秦疆2号"); 
-session.setAttribute("name3","秦疆3号"); 
-application.setAttribute("name4","秦疆4号");  
+pageContext.setAttribute("name1","秦疆1号"); //保存的数据只在一个页面中有效
+request.setAttribute("name2","秦疆2号"); //保存的数据只在一次请求中有效，请求转发会携带这个数据
+session.setAttribute("name3","秦疆3号"); //保存的数据只在一次会话中有效，从打开浏览器到关闭浏览器
+application.setAttribute("name4","秦疆4号");  //保存的数据只在服务器中有效，从打开服务器到关闭服务器
 
 ```
 
@@ -1841,7 +1841,13 @@ JSPDemo01.jsp
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-    
+    /*pageContext.setAttribute("test","test",PageContext.APPLICATION_SCOPE);
+    pageContext.setAttribute("test","test",PageContext.REQUEST_SCOPE);
+    pageContext.setAttribute("test","test",PageContext.SESSION_SCOPE);
+    pageContext.setAttribute("test","test",PageContext.PAGE_SCOPE);
+	
+	PageContext.PAGE_SCOPE控制作用域
+*/
     pageContext.setAttribute("name1","pageContext_name01");
     session.setAttribute("name2","session_name02");
     request.setAttribute("name3","request_name03");
@@ -1911,8 +1917,11 @@ JSPDemo03.jsp
 <body>
 
 <%
-    pageContext.forward("/JSPDemo01.jsp");
-    
+    pageContext.forward("/JSPDemo01.jsp");//页面前端转发
+    /*
+    * 后台转发
+    * request.getRequestDispatcher("/JSPDemo01.jsp").forward(request,response);
+    * */
 %>
 
 </body>
@@ -1940,13 +1949,13 @@ pageContext.findAttribute
 ### 8.6、JSP标签、JSTL标签、EL表达式
 
 ```xml
-
+<!-- JSTL表达式的依赖 -->
 <dependency>
     <groupId>javax.servlet.jsp.jstl</groupId>
     <artifactId>jstl-api</artifactId>
     <version>1.2</version>
 </dependency>
-
+<!-- standard标签库 -->
 <dependency>
     <groupId>taglibs</groupId>
     <artifactId>standard</artifactId>
@@ -2219,24 +2228,28 @@ Filter开发步骤：
         ```java
         public class CharacterEncodingFilter implements Filter {
         
-            
+            //初始化：web服务器启动，就以及初始化了，随时等待过滤对象出现！
             public void init(FilterConfig filterConfig) throws ServletException {
                 System.out.println("CharacterEncodingFilter初始化");
             }
         
-            
-            
+            //Chain : 链
+            /*
+            1. 过滤中的所有代码，在过滤特定请求的时候都会执行
+            2. 必须要让过滤器继续同行
+                chain.doFilter(request,response);
+             */
             public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
                 request.setCharacterEncoding("utf-8");
                 response.setCharacterEncoding("utf-8");
                 response.setContentType("text/html;charset=UTF-8");
         
                 System.out.println("CharacterEncodingFilter执行前....");
-                chain.doFilter(request,response); 
+                chain.doFilter(request,response); //让我们的请求继续走，如果不写，程序到这里就被拦截停止！
                 System.out.println("CharacterEncodingFilter执行后....");
             }
         
-            
+            //销毁：web服务器关闭的时候，过滤会销毁
             public void destroy() {
                 System.out.println("CharacterEncodingFilter销毁");
             }
@@ -2254,9 +2267,9 @@ Filter开发步骤：
     </filter>
     <filter-mapping>
         <filter-name>CharacterEncodingFilter</filter-name>
-        
+        <!--只要是 /servlet的任何请求，会经过这个过滤器-->
         <url-pattern>/servlet/*</url-pattern>
-        
+        <!--<url-pattern>/*</url-pattern>-->
     </filter-mapping>
     
     ```
@@ -2271,11 +2284,11 @@ Filter开发步骤：
     实现监听器的接口…
     
     ```java
-    
+    //统计网站在线人数 ： 统计session
     public class OnlineCountListener implements HttpSessionListener {
     
-        
-        
+        //创建session监听： 看你的一举一动
+        //一旦创建Session就会触发一次这个事件！
         public void sessionCreated(HttpSessionEvent se) {
             ServletContext ctx = se.getSession().getServletContext();
     
@@ -2294,8 +2307,8 @@ Filter开发步骤：
     
         }
     
-        
-        
+        //销毁session监听
+        //一旦销毁Session就会触发一次这个事件！
         public void sessionDestroyed(HttpSessionEvent se) {
             ServletContext ctx = se.getSession().getServletContext();
     
@@ -2313,7 +2326,11 @@ Filter开发步骤：
         }
     
     
-        
+        /*
+        Session销毁：
+        1. 手动销毁  getSession().invalidate();
+        2. 自动销毁
+         */
     }
     
     
@@ -2322,7 +2339,7 @@ Filter开发步骤：
 2.  web.xml中注册监听器
   
     ```xml
-    
+    <!--注册监听器-->
     <listener>
         <listener-class>com.kuang.listener.OnlineCountListener</listener-class>
     </listener>
@@ -2339,21 +2356,21 @@ Filter开发步骤：
 ```java
 public class TestPanel {
     public static void main(String[] args) {
-        Frame frame = new Frame("中秋节快乐");  
-        Panel panel = new Panel(null); 
-        frame.setLayout(null); 
+        Frame frame = new Frame("中秋节快乐");  //新建一个窗体
+        Panel panel = new Panel(null); //面板
+        frame.setLayout(null); //设置窗体的布局
 
         frame.setBounds(300,300,500,500);
-        frame.setBackground(new Color(0,0,255)); 
+        frame.setBackground(new Color(0,0,255)); //设置背景颜色
 
         panel.setBounds(50,50,300,300);
-        panel.setBackground(new Color(0,255,0)); 
+        panel.setBackground(new Color(0,255,0)); //设置背景颜色
 
         frame.add(panel);
 
         frame.setVisible(true);
 
-        
+        //监听事件，监听关闭事件
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -2431,8 +2448,11 @@ success.jsp
 <body>
 
 <%
-    
-   
+    /*在jsp页面写过滤代码不建议*/
+   /* Object userSession = request.getSession().getAttribute(Constant.USER_SESSION);
+    if(userSession == null){
+        response.sendRedirect("/Login.jsp");
+    }*/
 %>
 
 <h1>主页</h1>
@@ -2486,12 +2506,12 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        
+        //获取前端请求的参数
         String username = req.getParameter("username");
-        if("admin".equals(username)){
+        if("admin".equals(username)){//登录成功
             req.getSession().setAttribute(Constant.USER_SESSION,req.getSession().getId());
             resp.sendRedirect("/sys/success.jsp");
-        }else{
+        }else{//登录失败
             resp.sendRedirect("/error.jsp");
         }
 
@@ -2528,8 +2548,14 @@ public class LogoutServlet extends HttpServlet {
             resp.sendRedirect("/Login.jsp");
         }else{
             resp.sendRedirect("/Login.jsp");
-            
-            
+            //注意：如果重定向时，路径前面不加"\"，则会将路径加载上一个强求的后面
+            /*例如：
+            *       登录请求的的路径为localhost:8081/servlet/login
+            *       那么登录成功重定向之后，路径为localhost:8081/servlet/success.jsp
+            *       会报404
+            *
+            *
+            * */
         }
 
 
@@ -2592,7 +2618,7 @@ public class SysFilter implements Filter {
 
 web.xml
 
-```xml
+```java
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -2631,7 +2657,10 @@ web.xml
     </filter>
     <filter-mapping>
         <filter-name>SysFilter</filter-name>
-        <url-pattern>/sys
+        <url-pattern>/sys/*</url-pattern>
+    </filter-mapping>
+</web-app>
+
 ```
 
 14、JDBC
@@ -2675,7 +2704,7 @@ SELECT	* FROM users;
 导入数据库依赖
 
 ```xml
-
+<!--mysql的驱动-->
 <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
@@ -2700,24 +2729,24 @@ IDEA中连接数据库：
 ```java
 public class TestJdbc {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        
-        
+        //配置信息
+        //useUnicode=true&characterEncoding=utf-8 解决中文乱码
         String url="jdbc:mysql://localhost:3306/jdbc?useUnicode=true&characterEncoding=utf-8";
         String username = "root";
         String password = "123456";
 
-        
+        //1.加载驱动
         Class.forName("com.mysql.jdbc.Driver");
-        
+        //2.连接数据库,代表数据库
         Connection connection = DriverManager.getConnection(url, username, password);
 
-        
+        //3.向数据库发送SQL的对象Statement,PreparedStatement : CRUD
         Statement statement = connection.createStatement();
 
-        
+        //4.编写SQL
         String sql = "select * from users";
 
-        
+        //5.执行查询SQL，返回一个 ResultSet  ： 结果集
         ResultSet rs = statement.executeQuery(sql);
 
         while (rs.next()){
@@ -2728,7 +2757,7 @@ public class TestJdbc {
             System.out.println("birthday="+rs.getObject("birthday"));
         }
 
-        
+        //6.关闭连接，释放资源（一定要做） 先开后关
         rs.close();
         statement.close();
         connection.close();
@@ -2743,37 +2772,37 @@ public class TestJdbc {
 ```java
 public class TestJDBC2 {
     public static void main(String[] args) throws Exception {
-        
-        
+        //配置信息
+        //useUnicode=true&characterEncoding=utf-8 解决中文乱码
         String url="jdbc:mysql://localhost:3306/jdbc?useUnicode=true&characterEncoding=utf-8";
         String username = "root";
         String password = "123456";
 
-        
+        //1.加载驱动
         Class.forName("com.mysql.jdbc.Driver");
-        
+        //2.连接数据库,代表数据库
         Connection connection = DriverManager.getConnection(url, username, password);
 
-        
+        //3.编写SQL
         String sql = "insert into  users(id, name, password, email, birthday) values (?,?,?,?,?);";
 
-        
+        //4.预编译
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        preparedStatement.setInt(1,2);
-        preparedStatement.setString(2,"狂神说Java");
-        preparedStatement.setString(3,"123456");
-        preparedStatement.setString(4,"24736743@qq.com");
-        preparedStatement.setDate(5,new Date(new java.util.Date().getTime()));
+        preparedStatement.setInt(1,2);//给第一个占位符？ 的值赋值为1；
+        preparedStatement.setString(2,"狂神说Java");//给第二个占位符？ 的值赋值为狂神说Java；
+        preparedStatement.setString(3,"123456");//给第三个占位符？ 的值赋值为123456；
+        preparedStatement.setString(4,"24736743@qq.com");//给第四个占位符？ 的值赋值为1；
+        preparedStatement.setDate(5,new Date(new java.util.Date().getTime()));//给第五个占位符？ 的值赋值为new Date(new java.util.Date().getTime())；
 
-        
+        //5.执行SQL
         int i = preparedStatement.executeUpdate();
 
         if (i>0){
             System.out.println("插入成功@");
         }
 
-        
+        //6.关闭连接，释放资源（一定要做） 先开后关
         preparedStatement.close();
         connection.close();
     }
@@ -2807,7 +2836,7 @@ A(900)   --100-->   B(1100)
 依赖
 
 ```xml
-
+<!--单元测试-->
 <dependency>
     <groupId>junit</groupId>
     <artifactId>junit</artifactId>
@@ -2852,37 +2881,37 @@ INSERT INTO account(`name`,money) VALUES('C',1000);
 ```java
     @Test
     public void test() {
-        
-        
+        //配置信息
+        //useUnicode=true&characterEncoding=utf-8 解决中文乱码
         String url="jdbc:mysql://localhost:3306/jdbc?useUnicode=true&characterEncoding=utf-8";
         String username = "root";
         String password = "123456";
 
         Connection connection = null;
 
-        
+        //1.加载驱动
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            
+            //2.连接数据库,代表数据库
              connection = DriverManager.getConnection(url, username, password);
 
-            
+            //3.通知数据库开启事务,false 开启
             connection.setAutoCommit(false);
 
             String sql = "update account set money = money-100 where name = 'A'";
             connection.prepareStatement(sql).executeUpdate();
 
-            
-            
+            //制造错误
+            //int i = 1/0;
 
             String sql2 = "update account set money = money+100 where name = 'B'";
             connection.prepareStatement(sql2).executeUpdate();
 
-            connection.commit();
+            connection.commit();//以上两条SQL都执行成功了，就提交事务！
             System.out.println("success");
         } catch (Exception e) {
             try {
-                
+                //如果出现异常，就通知数据库回滚事务
                 connection.rollback();
             } catch (SQLException e1) {
                 e1.printStackTrace();
@@ -2932,7 +2961,7 @@ public class BaseDao {
         password = properties.getProperty("password");
 
     }
-    
+    /*获取数据库连接*/
     public static Connection getConnection() throws SQLException {
         Connection connection = null;
         try {
@@ -2943,7 +2972,9 @@ public class BaseDao {
         }
         return connection;
     }
-    
+    /*
+    * 查询通用类
+    * */
 
     public static ResultSet executeQ(Connection conn , PreparedStatement pstm,ResultSet rs,String sql,Object[] objects) throws SQLException {
         pstm = conn.prepareStatement(sql);
@@ -2954,7 +2985,10 @@ public class BaseDao {
         return rs;
     }
 
-    
+    /*
+    * 操作数据通用类
+    *
+    * */
     public static int execute(Connection conn,PreparedStatement pstm,String sql,Object[] objects) throws SQLException {
         int execute = 0;
         pstm = conn.prepareStatement(sql);
@@ -2966,13 +3000,16 @@ public class BaseDao {
 
     }
 
-    
+    /*
+    * 关闭资源
+    *
+    * */
     public static boolean closeResource(Connection conn,PreparedStatement pstm,ResultSet rs){
         boolean flag = true;
         if(rs!=null){
             try {
                 rs.close();
-                
+                //gc回收
                 rs=null;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -2982,7 +3019,7 @@ public class BaseDao {
         if(pstm!=null){
             try {
                 pstm.close();
-                
+                //gc回收
                 pstm=null;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -2992,7 +3029,7 @@ public class BaseDao {
         if(conn!=null){
             try {
                 conn.close();
-                
+                //gc回收
                 conn=null;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -3006,3 +3043,11 @@ public class BaseDao {
 
 
 ```
+
+15、SMBMS(超市管理项目)
+----------------
+
+30~37集的SMBMS项目实验  
+[B站狂神说 - Eclipse - SMBMS项目实验  
+https://blog.csdn.net/bell\_love/article/details/106157413](https://blog.csdn.net/bell_love/article/details/106157413)  
+。。。
