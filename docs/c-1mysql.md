@@ -1,5 +1,4 @@
 1、初识MySQL
-=========
 
 JavaEE：企业级Java开发 Web
 
@@ -2131,3 +2130,607 @@ dbcp.ar
 > 结论
 
 无论使用什么数据源，本质是不变的，DateSource接口不会变，方法就不会变
+
+MySQL必知必会
+=========
+
+5-排序检索数据
+------------
+
+```mysql
+  SELECT products.prod_name 
+  FROM table1
+  
+  limit m,n -- 从m+1条开始，取n条数据
+  select aa from table1 order by aa;
+  -- 按多个列排序
+  select a,b,c from table1 order by b,c;
+  select a,b,c from table1 order by b DESC,C;
+  
+  DESC 只用于位于前面的列名
+  
+ ASC 升序排列（升序是默认的）
+ 
+ select a from table1 order by a DESC limit 1;
+ 
+ from  - order by - limit;
+
+```
+
+6-过滤数据
+--------
+
+```mysql
+select - where 子句 指定搜素条件
+select a,b from table1 where a =1;
+select a,b from table1 where c =1;
+select a,b from table1 where a <>1;
+单引号 用来限定 字符串
+select a,b from table1 where b BETWEEN 5 AND 10;
+
+-- 空值检查
+NULL 无值（no value），它与字段包含0、空字符串或仅仅包含空格不同。
+select a from table1 where b is null;
+
+```
+
+7-数据过滤
+----------
+
+```mysql
+-- 组合 WHERE子句
+逻辑操作符 
+select a,b,c from table1 where a = 100 and b <= 120;
+OR操作符告诉DBMS匹配任一条件而不是同时匹配两个条件
+select a,b,c from table1 where a = 100 or b <= 120;
+
+SQL（像多数语言一样）在处理OR操作符前，优先处理AND操作符
+问题的解决方法是使用圆括号明确地分组相应的操作符
+
+select a,b,c from table1 where (a=100 or b=20)  and c=11;
+任何时候使用具有AND和OR操作符的WHERE子句，都应该使用圆括号明确地分组操作符。不要过分依赖默认计算次序
+select a,b from table1 where b IN (1,2) order by c;
+
+IN的最大优点是可以包含其他SELECT语句，使得能够更动态地建立WHERE子句
+
+NOT 操作符
+select a,b from table1 where b NOT IN (1,2) order by c;
+
+
+```
+
+8-用通配符进行过滤
+--------------
+
+```mysql
+-- 什么是通配符、如何使用通配符以及怎样使用LIKE操作符进行通配搜索？
+
+LIKE 操作符
+在搜索串中，%表示任何字符出现任意次数
+-- 找出所有以词jet起头
+select * from table1 where b LIKE 'jet%';
+%告诉MySQL接受jet之后的任意字符，不管它有多少字符
+
+根据MySQL的配置方式，搜索可以是区分大小写的
+select * from table1 where b LIKE '%jet%';
+搜索模式’%jet%’表示匹配任何位置包含文本jet的值，而不论它之前或之后出现什么字符
+除了一个或多个字符外，%还能匹配0个字符。%代表搜索模式中给定位置的0个、1个或多个字符
+即使是WHERE prod_name LIKE '%'也不能匹配用值NULL作为产品名的行。
+null 是 通配符 % 匹配的例外
+
+下划线(_) 通配符：下划线只匹配单个字符而不是多个字符。
+_总是匹配一个字符，不能多也不能少
+在确实需要使用通配符时 功能代价比较大，花费开销更长
+-- 不要过度使用
+
+```
+
+9-用正则表达式进行搜索
+----------------
+
+```mysql
+LIKE与REGEXP 在LIKE和REGEXP之间有一个重要的差别
+LIKE匹配整个列。如果被匹配的文本在列值中出现，LIKE将不会找到它，相应的行也不被返回（除非使用通配符）。而REGEXP在列值内进行匹配，如果被匹配的文本在列值中出现，REGEXP将会找到它，相应的行将被返回。
+select a from table1 where a regexp '100|200' order by a;
+使用了正则表达式1000|2000。|为正则表达式的OR操作符
+
+select a from table1 where a regexp '[123] Ton' order by a;
+使用了正则表达式[123] Ton。[123]定义一组字符，它的意思是匹配1或2或3
+
+为否定一个字符集，在集合的开始处放置一个^即可 
+[^123] 匹配除这些字符外的任何东西。
+
+[1-5]定义了一个范围，这个表达式意思是匹配1到5
+．匹配任意字符，因此每个行都被检索出来
+-- 匹配特殊字符 前面加 双斜杠 \\
+了匹配特殊字符，必须用\\为前导。\\-表示查找-, \\．表示查找．
+select a from table1 where regexp '\\.' order by a;
+ 多数正则表达式实现使用单个反斜杠转义特殊字符，以便能使用这些字符本身。但MySQL要求两个反斜杠（MySQL自己解释一个，正则表达式库解释另一个
+ -- 重复元字符
+ * 0个或者是多个匹配
+ + 1个或多个匹配{1,}
+ ? 0个或1个匹配{0,1}
+ {n} 指定数目的匹配
+ {n,} 不少于指定数目的匹配
+ {n,m} 匹配数目的范围 
+ 
+ -- 定位符
+ ^ 文本的开始
+ $ 文本的结尾
+ [[:<:]] 词的开始
+ [[:>:]] 词的结尾
+ 
+ 找到以小数点开始的数
+ select a from table1 where a regexp '^[0-9\\.]'
+ order by a ;
+ ^[0-9\\.]只在．或任意数字为串中第一个字符时才匹配它们
+ 
+
+```
+
+10-创建计算字段
+-------------
+
+```mysql
+Concat() 拼接函数
+select Concat( a,'(',b,')') from table1 order by a;
+Concat()需要一个或多个指定的串，各个串之间用逗号分隔
+
+RTrim()函数去掉值右边的所有空格
+Trim()（去掉串左右两边的空格
+LTrim()函数去掉值左边的所有空格
+ -- 别名  AS
+AS vend_title。它指示SQL创建一个包含指定计算的名为vend_title的计算字段
+ -- 计算
+ select a,b,c,b*c as d
+ from table1 
+ where a = 100; 
+ 将结果 b*c  命名为d 的新列输出！
+ 可以省略FROM子句以便简单地访问和处理表达式
+ SELECT 3*2；将返回6, SELECT Trim('abc')；将返回abc，而SELECT Now()利用Now()函数返回当前日期和时间
+ 
+
+```
+
+11-使用数据处理函数
+-------------
+
+```mysql
+SQL支持利用函数来处理数据
+-- 文本处理函数
+select a ,Upper(a) as b from table1 order by a;
+Upper()将文本转换为大写
+Left() 返回串左边的字符
+Length() 返回串的长度
+Locate() 找出串的一个子串
+Lower() 将串转换为小写
+Right() 返回串的右边的字符
+Soundex() 返回串的DOUNDEX值
+SubString() 返回子串的字符
+
+ -- 使用Soundex()函数进行搜索，它匹配所有发音类似于Y.Lie的联系名
+ select a,b from table1 
+ where Soundex(b) = Soundex('Y Lie');
+ 
+ 日期和时间处理函数
+
+```
+
+\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-uazOJxKB-1613640008235)(C:\\Users\\ye\\AppData\\Roaming\\Typora\\typora-user-images\\image-20210114193737733.png)\]
+
+```mysql
+无论你什么时候指定一个日期，不管是插入或更新表值还是用WHERE子句进行过滤，日期必须为格式yyyy-mm-dd
+2005年9月1日，给出为2005-09-01
+
+如果要的是日期，请使用Date() 如果你想要的仅是日期，则使用Date()是一个良好的习惯,如果由于某种原因表中以后有日期和时间值,SQL代码也不需要改变。
+select a,b from table1 where Date(a)= '2021-01-14';
+
+Year()是一个从日期（或日期时间）中返回年份的函数。类似，Month()从日期中返回月份。因此，WHERE Year(order_date)=2005 AND Month(order_date) = 9
+检索出order_date为2005年9月的所有行
+select a,b from table1 where Year(b)= 2005 AND Month(b)=9; 
+
+-- 数字处理函数
+
+```
+
+12-汇总数据
+-----------
+
+```mysql
+-- 介绍什么是SQL的聚集函数以及如何利用它们汇总表的数据。
+AVG() 返回某列的平均值
+COUNT() 返回某列的行数
+MAX() 返回某列的最大值
+MIN() 返回某列的最小值
+SUM() 返回某列值之和
+
+AVG()可用来返回所有列的平均值，也可以用来返回特定列或行的平均值
+select AVG(a) as avg_a from table1;
+ -- SELECT语句返回值avg_price，它包含products表中所有产品的平均价格。如第10章所述，avg_price是一个别名
+ select AVG(a) as avg_a from table1 where b=1001;
+ AVG() 只能用于单个列，为了获得多个列的平均值，必须使用多个AVG()函数
+ -- NULL值 AVG()函数忽略列值为NULL的行。
+ 
+ COUNT()确定表中行的数目或符合特定条件的行的数目
+ 使用COUNT(*)对表中行的数目进行计数，不管表列中包含的是空值（NULL）还是非空值。
+ 使用COUNT(column)对特定列中具有值的行进行计数，忽略NULL值。
+ select COUNT(*) AS num from table1;
+ -- 利用COUNT(*)对所有行计数，不管行中各列有什么值。计数值在num中返回
+ select COUNT(a) as num_a from table1;
+ -- 特定列中具有值的行进行计数，忽略NULL值。
+ -- !! NULL值 如果指定列名，则指定列的值为空的行被COUNT()函数忽略，但如果COUNT()函数中用的是星号（*），则不忽略。
+ 
+ MAX()返回指定列中的最大值。MAX()要求指定列名
+ select MAX(a) AS a_max from table1;
+ -- NULL值 MAX()函数忽略列值为NULL的行
+ 
+ MIN()的功能正好与MAX()功能相反，它返回指定列的最小值。与MAX()一样，MIN()要求指定列名
+ select MIN(a) as a_min from table1;
+ NULL值 MIN()函数忽略列值为NULL的行。
+ 
+ SUM()用来返回指定列值的和（总计)
+ select SUN(a) as a_sum 
+ from table1 where b = 1001;
+ SUM()也可以用来合计计算值
+ select SUN(a * b) as ab_sum from table1 where c = 1001;
+ -- 在多个列上进行计算 如本例所示，利用标准的算术操作符，所有聚集函数都可用来执行多个列上的计算
+ NULL值 SUM()函数忽略列值为NULL的行
+ 
+ 只包含不同的值，指定DISTINCT参数
+ ALL为默认 ALL参数不需要指定，因为它是默认行为。如果不指定DISTINCT
+ select AVG(DISTINCT a) as avg_a from table1 where b = 1001;
+ DISTINCT必须使用列名，不能用于计算或表达式
+ 取别名 在指定别名以包含某个聚集函数的结果时，不应该使用表中实际的列名
+
+```
+
+13-分组数据
+----------
+
+```mysql
+-- GROUP BY子句指示MySQL分组数据，然后对每个组而不是整个结果集进行聚集
+SELECT A,COUNT(*) AS sh 
+FROM TABLE1
+GROUP BY A;
+
+-- 事实上，目前为止所学过的所有类型的WHERE子句都可以用HAVING来替代。唯一的差别是WHERE过滤行，而HAVING过滤分组
+SELECT A,COUNT(*) AS sh 
+FROM TABLE1
+GROUP BY A
+HAVING COUNT(*) >=2;
+-- having 是对分组后的结果进行过滤
+-- GROUP BY 分组  ORDER BY 子句排序输出
+
+```
+
+14-使用子查询
+---------
+
+```mysql
+-- 每个步骤都可以单独作为一个查询来执行。可以把一条SELECT语句返回的结果用于另一条SELECT语句的WHERE子句
+-- 子查询是从内向外处理的 在WHERE子句中使用子查询能够编写出功能很强并且很灵活的SQL语句。对于能嵌套的子查询的数目没有限制，不过在实际使用时由于性能的限制，不能嵌套太多的子查询。
+-- 不建议使用太多嵌套的子查询
+
+```
+
+15-联结表
+-------
+
+```mysql
+-- join 联结表
+-- 外键为某个表中的一列，它包含另一个表的主键值，定义了两个表之间的关系
+-- 由没有联结条件的表关系返回的结果为笛卡儿积。检索出的行的数目将是第一个表中的行数乘以第二个表中的行数
+
+```
+
+16-创建高级联结
+---------
+
+```mysql
+-- 1.使用表别名
+-- 2. 使用不同的联结
+ -- 自联结通常作为外部语句用来替代从相同表中检索数据时使用的子查询语句。虽然最终的结果是相同的，但有时候处理联结远比处理子查询快得多
+ -- 自联结效果会比 子查询处理更快
+ select a1.id,a1.name
+ from table1 as p1,table1 as p2
+ where p1.id = p2.id
+ and p2.name = 'wqwq';
+ 
+ select table1.id,table2.id
+ from table1 inner join table2
+ on table1.id = table2.id;
+ 
+ 	select table1.id,table2.name
+ 	FROM table1 left outer join table2
+ 	on table1.id = table2.id;
+ 	
+ 	-- 在使用OUTER JOIN语法时，必须使用RIGHT或LEFT关键字指定包括其所有行的表（RIGHT指出的是OUTER JOIN右边的表，而LEFT指出的是OUTER JOIN左边的表
+ 	
+ 	-- 最后添加
+ 	GROUP BY 对结果进行聚合
+
+```
+
+17-组合查询
+-------
+
+```mysql
+	-- UNION的使用很简单。所需做的只是给出每条SELECT语句，在各条语句之间放上关键字UNION。
+	-- 对多条语句进行组合
+	UNION指示MySQL执行两条SELECT语句，并把输出组合成单个查询结果集
+	UNION必须由两条或两条以上的SELECT语句组成，语句之间用关键字UNION分隔（因此，如果组合4条SELECT语句，将要使用3个UNION关键字
+	UNION中的每个查询必须包含相同的列、表达式或聚集函数
+	-- 包含或取消重复的行
+	包含 union all
+	取消重复的行(默认) union 
+	-- 只能使用一条ORDER BY子句，它必须出现在最后一条SELECT语句之后。
+
+```
+
+18-全文搜索
+-------
+
+**MyISAM** 支持使用全文本搜索
+
+```mysql
+	MyISAM 支持全文本搜索
+	InnoDB 不支持全文搜索
+	-- 第8章介绍了LIKE关键字，它利用通配操作符匹配文本（和部分文本）。使用LIKE，能够查找包含特殊值或部分值的行
+	-- 使用全文本搜索时，MySQL不需要分别查看每个行，不需要分别分析和处理每个词。MySQL创建指定列中各词的一个索引，搜索可以针对这些词进行。
+	为了使用全文搜索，必须索引被搜索的列
+	为了进行全文本搜索，MySQL根据子句FULLTEXT(note_text)的指示对它进行索引
+	在定义之后，MySQL自动维护该索引。在增加、更新或删除行时，索引随之自动更新
+	使用两个函数Match()和Against()执行全文本搜索
+	Match()指定被搜索的列，Against()指定要使用的搜索表达式
+	select a
+	from table1
+	where Match(a) Against('robot');
+	
+	-- 如果对应表达式在 select 里面
+	在SELECT而不是WHERE子句中使用Match()和Against()。这使所有行都被返回（因为没有WHERE子句）。Match()和Against()用来建立一个计算列（别名为rank），此列包含全文本搜索计算出的等级值
+
+```
+
+19-插入数据
+-------
+
+```mysql
+	inINSERT
+	ININSERT是用来插入（或添加）行到数据库表的
+	-- 各个列必须以它们在表定义中出现的次序填充
+	niinsert into table1
+	avVALUES('aa','bb','cc','dd');
+	
+	ininsert into table1(a,b,c,d)
+	avVALUES('aa','bb','cc','dd');
+
+```
+
+```mysql
+	INSERT
+	INSERT是用来插入（或添加）行到数据库表的
+	-- 各个列必须以它们在表定义中出现的次序填充
+	insert into table1
+	VALUES('aa','bb','cc','dd');
+	-- 表名后的括号里明确地给出了列名。在插入行时，MySQL将用VALUES列表中的相应值填入列表中的对应项
+	insert into table1(a,b,c,d)
+	VALUES('aa','bb','cc','dd');
+	-- 总是使用列的列表 一般不要使用没有明确给出列的列表的INSERT语句。使用列的列表能使SQL代码继续发挥作用，即使表结构发生了变化
+	插入多行数据
+	insert into table1(a,b,c,d)
+	VALUES('aa','bb','cc','dd'),
+	VALUES('aa','bb','cc','dd');
+	-- 因为MySQL用单条INSERT语句处理多个插入比使用多条INSERT语句快。
+
+```
+
+20-更新和删除数据
+----------
+
+```mysql
+update table1 
+set a='12345',b='555'
+where b='321';
+-- 即使是发生错误，也继续进行更新，可使用IGNORE关键字
+
+delete from table1 
+where a = 10086;
+-- DELETE删除整行而不是删除列。为了删除指定的列，请使用UPDATE语句
+-- 使用TRUNCATETABLE语句，它完成相同的工作，但速度更快（TRUNCATE实际是删除原来的表并重新创建一个表，而不是逐行删除表中的数据）
+-- 如果省略了WHERE子句，则UPDATE或DELETE将被应用到表中所有的行
+
+
+```
+
+21-创建和操纵表
+---------
+
+```mysql
+-- 不要把NULL值与空串相混淆。NULL值是没有值，它不是空串。如果指定’'（两个单引号，其间没有字符），这在NOT NULL列中是允许的。空串是一个有效的值，它不是无值。NULL值用关键字NULL而不是空串指定
+-- 为创建由多个列组成的主键，应该以逗号分隔的列表给出各列名
+-- 每个表只允许一个AUTO_INCREMENT列，而且它必须被索引（如，通过使它成为主键)
+SELECT_last_insert_id() 此语句返回最后一个AUTO_INCREMENT,用于后续的MySQL语句
+
+-- MySQL与其他DBMS不一样，它具有多种引擎。它打包多个引擎，这些引擎都隐藏在MySQL服务器内 引擎类型可以混用
+
+-- 为更新表定义，可
+使用ALTER TABLE语句
+
+-- 删除表
+DROP TABLE table1;
+删除表之间的区别
+TRUNCATE 和DELETE只删除数据， DROP则删除整个表（结构和数据）
+
+-- 重命名表
+RENAME TABLE table1 to table2;
+-- 将table1 的名字改为 table2
+
+```
+
+22-视图
+-----
+
+```mysql
+-- 视图是虚拟的表。与包含数据的表不一样，视图只包含使用时动态检索数据的查询
+-- 作为视图，它不包含表中应该有的任何列或数据，它包含的是一个SQL查询
+为什么使用视图：
+1. 重用SQL
+2. 简化复杂的SQL操作
+3. 保护数据
+4. 使用表的组成而不是整个表
+-- 视图仅仅是用来查看存储在别处的数据的一种设施
+视图用CREATE VIEW语句来创建
+使用SHOW CREATE VIEW viewname；来查看创建视图的语句
+用DROP删除视图，其语法为DROP VIEW viewname;
+直接用CREATE OR REPLACE VIEW 更新视图
+
+ CREATE VIEW viewaa as 
+ select a from table1 where a='123';
+ 
+--  视图的另一常见用途是重新格式化检索出的数据
+-- 视图非常容易创建，而且很好使用。正确使用，视图可极大地简化复杂的数据处理
+视图大多数是不可更新的，因为视图的主要作用的 数据检索
+-- 图提供了一种MySQL的SELECT语句层次的封装，可用来简化数据处理以及重新格式化基础数据或保护基础数据
+
+```
+
+23-使用存储过程
+---------
+
+```mysql
+存储过程简单来说，就是为以后的使用而保存的一条或多条MySQL语句的集合
+-- 使用存储过程有3个主要的好处，即简单、安全、高性能
+
+BEGIN和END语句用来限定存储过程体
+CREATE PROCEDURE product()
+begin
+	select avg(a) a aavg
+	from table1;
+end;
+-- 针对两个 ; 的结束标记
+-- 解决办法是临时更改命令行实用程序的语句分隔符
+DELIMITER //
+ -- 告诉命令行实用程序使用//作为新的语句结束分隔符
+ 那么，如何使用这个存储过程
+ call product();  
+ -- 执行刚创建的存储过程并显示返回的结果，因为存储过程实际上是一种函数
+ 
+ 删除存储过程  
+ DROP PROCEDURE product;
+ -- 删除刚创建的存储过程。请注意没有使用后面的()，只给出存储过程名。
+ 也可以加入判断删除
+ DROP PROCEDURE IF EXISTS product;
+ 
+ -- 使用参数
+ MySQL支持IN（传递给存储过程）、OUT（从存储过程传出，如这里所用）和INOUT（对存储过程传入和传出）
+ 
+-- 所有MySQL变量都必须以 @ 开始
+CREATE PROCEDURE produce(
+	OUT p1 DECIMAL(8,2),
+    OUT p2 DECIMAL(8,2)
+)
+BEGIN 
+	select min(a_price)
+	into p1
+	from table1;
+	select max(a_price)
+	into p2
+	from table1;
+END;
+-- 调用此存储过程
+CALL produce(@price_low,@price_max);
+
+-- 显示存储过程
+select @price_low;
+
+-- 这次使用IN和OUT参数编写
+CREATE PROCEDURE produce(
+    in onnumber INT,
+    out a decimal(8,2)
+) 
+BEGIN
+	SELECT SUN(a * b)
+	FROM table1
+	where a = onnumber
+	INTO a;
+END;
+-- 为调用这个新存储过程 给函数传递对应的两个参数
+CALL produce(2005,@totala);
+select @totala;
+
+-- 检查存储过程的CREATE语句
+使用SHOW CREATE PROCEDURE 存储名;
+-- 获得包括何时、由谁创建等详细信息的存储过程列表
+SHOW PROCEDURE STATUS
+
+
+```
+
+24-使用游标
+-------
+
+```mysql
+有时，需要在检索出来的行中前进或后退一行或多行。这就是使用游标的原因。游标（cursor）
+-- 创建游标 游标用DECLARE语句创建
+-- DECLARE语句用来定义和命名游标，这里为ordernumbers。存储过程处理完成后，游标就消失（因为它局限于存储过程）
+-- 打开游标
+open cursor;
+close cursor;
+CLOSE释放游标使用的所有内部内存和资源，因此在每个游标不再需要时都应该关闭
+隐含关闭，在end 语句时自动关闭
+create procedure process()
+begin
+	declare ordernumber cursor
+	for 
+	select a from table1;
+	-- open the cursor
+	open ordernumber;
+	-- close the cursor
+	close ordernumber;
+end;
+
+-- 在一个游标被打开后，可以使用FETCH语句分别访问它的每一行
+
+```
+
+25-使用触发器
+--------
+
+```mysql
+-- 如果你想要某条语句（或某些语句）在事件发生时自动执行
+触发器应该响应的活动（DELETE、INSERT或UPDATE
+触发器用CREATE TRIGGER语句创建
+
+```
+
+26-事务处理
+-------
+
+```mysql
+事务处理（transaction processing）可以用来维护数据库的完整性，它保证成批的MySQL操作要么完全执行，要么完全不执行。
+事务处理是一种机制，用来管理必须成批执行的MySQL操作，以保证数据库不包含不完整的操作结果
+利用事务处理，可以保证一组操作不会中途停止，它们或者作为整体执行，或者完全不执行（除非明确指示）。如果没有错误发生，整组语句提交给（写到）数据库表。如果发生错误，则进行回退（撤销）以恢复数据库到某个已知且安全的状态。
+事务（transaction）指一组SQL语句
+回退（rollback）指撤销指定SQL语句的过程；
+提交（commit）指将未存储的SQL语句结果写入数据库表
+保留点（savepoint）指事务处理中设置的临时占位符（place-holder），你可以对它发布回退（与回退整个事务处理不同）
+-- 开始事务
+start transaction
+-- 回滚
+rollback;
+ROLLBACK只能在一个事务处理内使用（在执行一条START TRANSACTION命令之后
+事务处理用来管理INSERT、UPDATE和DELETE语句。你不能回退SELECT语句。（这样做也没有什么意义。）你不能回退CREATE或DROP操作
+
+般的MySQL语句都是直接针对数据库表执行和编写的。这就是所谓的隐含提交 
+-- 自动提交
+为了支持回退部分事务处理，必须能在事务处理块中合适的位置放置占位符
+savepoint delete1
+rollback to delete1;
+释放保留点 保留点在事务处理完成（执行一条ROLLBACK或COMMIT）后自动释放。
+自MySQL 5以来，也可以用RELEASE SAVEPOINT明确地释放保留点。
+
+-- autocommit标志决定是否自动提交更改，不管有没有COMMIT语句。设置autocommit为0（假）指示MySQL不自动提交更改（直到autocommit被设置为真为止）
+set autocommit = 0;
+
+```
+
