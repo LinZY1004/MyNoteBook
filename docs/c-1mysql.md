@@ -141,6 +141,8 @@ SHOW DATABASES--查看所有数据库
 
 ### 2.2数据库的列类型
 
+[MySQL中tinytext、text、mediumtext和longtext等各个类型详解](https://blog.csdn.net/youcijibi/article/details/80673811)
+
 > 数值
 
 *   tinyint 十分小的数据 1个字节
