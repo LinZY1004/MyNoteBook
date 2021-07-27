@@ -59,7 +59,7 @@
 <!-- /code_chunk_output -->
 
 
-## 林同学的Java笔记
+## Java笔记
 
 * ### [Javaweb](./docs/a-1javaweb.md)
 
